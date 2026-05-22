@@ -1,7 +1,7 @@
 package com.pluralsight.model;
 
 public interface MenuItem {
-    void getPrice();
+    double getPrice();
 
     void description();
 

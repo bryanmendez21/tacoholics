@@ -26,12 +26,20 @@ public class Drink implements MenuItem{
     }
 
     @Override
-    public void getPrice(){
-
+    public double getPrice(){
+        double price = 0;
+        if(drinkSize == 24){
+            price += 2.00;
+        } else if (drinkSize == 36) {
+            price += 2.50;
+        } else if (drinkSize == 48) {
+            price += 3.00;
+        }
+        return price;
     }
 
     @Override
     public void description() {
-
+        System.out.println("Drink flavor: " + flavor);
     }
 }

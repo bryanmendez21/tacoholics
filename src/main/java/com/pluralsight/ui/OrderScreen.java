@@ -2,7 +2,6 @@ package com.pluralsight.ui;
 
 import com.pluralsight.Main;
 
-import java.util.Scanner;
 
 public class OrderScreen implements Screen{
 
@@ -22,7 +21,7 @@ public class OrderScreen implements Screen{
             int choice = Main.scanner.nextInt();
 
             switch (choice) {
-                case 1 -> System.out.println("add taco");
+                case 1 -> new AddTaco().display();
                 case 2 -> System.out.println("add drink");
                 case 3 -> System.out.println("add chips and salsa");
                 case 4 -> System.out.println("checkout");
