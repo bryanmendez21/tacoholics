@@ -21,7 +21,7 @@ public class HomeScreen implements Screen{
             switch(choice){
                 case 1 -> new OrderScreen().display();
                 case 0 -> running = false;
-                default -> System.out.println("Invalid Input");
+                default -> System.out.println("-Invalid Input-");
             }
         }
     }
