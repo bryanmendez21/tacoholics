@@ -16,7 +16,7 @@ public class OrderScreen implements Screen{
             System.out.println("2) Add Drink");
             System.out.println("3) Add Chips & Salsa");
             System.out.println("4) Checkout");
-            System.out.println("5) Cancel Order");
+            System.out.println("0) Cancel Order");
             System.out.print("Enter a Value: ");
 
             int choice = Main.scanner.nextInt();
