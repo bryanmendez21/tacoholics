@@ -40,6 +40,6 @@ public class Drink implements MenuItem{
 
     @Override
     public void description() {
-        System.out.println("Drink flavor: " + flavor);
+        System.out.printf("===== Drink Details =====%nSize: %.2f%nFlavor: %s%n========================%n",drinkSize,flavor);
     }
 }

@@ -2,6 +2,7 @@ package com.pluralsight.ui;
 
 import com.pluralsight.Main;
 import com.pluralsight.model.Cart;
+import com.pluralsight.model.Drink;
 
 
 public class OrderScreen implements Screen{
@@ -25,7 +26,7 @@ public class OrderScreen implements Screen{
 
             switch (choice) {
                 case 1 -> cart.addTaco(new AddTaco().buildTaco());
-                case 2 -> System.out.println("add drink");
+                case 2 -> cart.addDrink(new AddDrink().buildDrink());
                 case 3 -> System.out.println("add chips and salsa");
                 case 4 -> new Checkout(cart).display();
                 case 0 -> running = false;

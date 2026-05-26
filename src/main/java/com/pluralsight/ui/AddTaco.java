@@ -118,12 +118,13 @@ public class AddTaco implements Screen{
                 case 2 -> selectedCheese.add("oaxaca");
                 case 3 -> selectedCheese.add("coija");
                 case 4 -> selectedCheese.add("cheddar");
-                default -> selectedCheese.add("Invalid Input");
+                case 0 -> selectedCheese.add("No Cheese");
+                default -> System.out.println("Invalid Input");
             }
-
-            System.out.print("Extra Cheese .50 More (yes/no): ");
-            extraCheese = Main.scanner.nextLine().equalsIgnoreCase("yes");
-
+            if (cheeseChoice != 0) {
+                System.out.print("Extra Cheese .50 More (yes/no): ");
+                extraCheese = Main.scanner.nextLine().equalsIgnoreCase("yes");
+            }
         } while (extraCheese);
 
         return selectedCheese;
