@@ -1,24 +1,42 @@
 package com.pluralsight.ui;
 
 import com.pluralsight.Main;
+import com.pluralsight.model.SingleTaco;
+import com.pluralsight.model.Taco;
+import com.pluralsight.model.ThreeTacoPlate;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AddTaco implements Screen{
+    private boolean extraMeat;
+    private boolean extraCheese;
 
-    @Override
-    public void display() {
+    public Taco buildTaco(){
+        int type = tacoType();
         String shell = shell();
         List<String> meat =  meat();
         List<String> cheese = cheese();
         List<String> toppings = toppings();
 
-//        System.out.println("\nWould you like extra meat? (yes/no): ");
-//        boolean extraMeat = Main.scanner.nextLine().equalsIgnoreCase("yes");
-//
-//        System.out.println("\nWould you like extra cheese? (yes/no): ");
-//        boolean extraCheese = Main.scanner.nextLine().equalsIgnoreCase("yes");
+
+        if (type == 1){
+            return new SingleTaco(shell,meat,cheese,toppings,extraMeat,extraCheese);
+        } else {
+            return new ThreeTacoPlate(shell,meat,cheese,toppings,extraMeat,extraCheese);
+        }
+    }
+
+    @Override
+    public void display() {
+        buildTaco();
+    }
+
+    public int tacoType(){
+        System.out.println("1) single taco \n2) 3 taco plate (3 tacos with same ingredients: ");
+        int tacoTypeChoice = Main.scanner.nextInt();
+
+        return tacoTypeChoice;
     }
 
     public String shell(){
@@ -46,10 +64,9 @@ public class AddTaco implements Screen{
 
     public ArrayList<String> meat(){
         ArrayList<String> selectedMeat = new ArrayList<>();
-        String extraMeat;
 
         do{
-            System.out.println("Select Meats");
+            System.out.println("Select Meat");
             System.out.println("1) Carne Asada/Beef");
             System.out.println("2) Al Pastor/Pork");
             System.out.println("3) Carnitas/Pork");
@@ -71,10 +88,10 @@ public class AddTaco implements Screen{
                 default -> System.out.println("Invalid Input");
             }
 
-            System.out.print("Extra Meat (yes/no): ");
-            extraMeat = Main.scanner.nextLine();
+            System.out.print("Extra Meat .50 More (yes/no): ");
+            extraMeat = Main.scanner.nextLine().equalsIgnoreCase("yes");
 
-            } while (extraMeat.equalsIgnoreCase("yes"));
+            } while (extraMeat);
 
            return selectedMeat;
 
@@ -82,10 +99,9 @@ public class AddTaco implements Screen{
 
     public ArrayList<String> cheese(){
         ArrayList<String> selectedCheese = new ArrayList<>();
-        String extraCheese;
 
         do {
-            System.out.println("Select Cheese");
+            System.out.println("Add Cheese For .75 More");
             System.out.println("1) Queso Fresco");
             System.out.println("2) Oaxaca");
             System.out.println("3) Cotija");
@@ -98,17 +114,17 @@ public class AddTaco implements Screen{
             Main.scanner.nextLine();
 
             switch (cheeseChoice) {
-                case 1 -> System.out.println("queso frsco");
-                case 2 -> System.out.println("oaxaca");
-                case 3 -> System.out.println("coija");
-                case 4 -> System.out.println("cheddar");
-                default -> System.out.println("Invalid Input");
+                case 1 -> selectedCheese.add("queso frsco");
+                case 2 -> selectedCheese.add("oaxaca");
+                case 3 -> selectedCheese.add("coija");
+                case 4 -> selectedCheese.add("cheddar");
+                default -> selectedCheese.add("Invalid Input");
             }
 
-            System.out.print("Extra Cheese (yes/no): ");
-            extraCheese = Main.scanner.nextLine();
+            System.out.print("Extra Cheese .50 More (yes/no): ");
+            extraCheese = Main.scanner.nextLine().equalsIgnoreCase("yes");
 
-        } while (extraCheese.equalsIgnoreCase("yes"));
+        } while (extraCheese);
 
         return selectedCheese;
     }

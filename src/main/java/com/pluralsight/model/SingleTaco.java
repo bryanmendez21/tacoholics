@@ -4,8 +4,8 @@ import java.util.List;
 
 public class SingleTaco extends Taco {
 
-    public SingleTaco(String shell, String cheese, List<String> meat, List<String> topping, int amountOfTaco, boolean extraMeat, boolean extraCheese) {
-        super(shell, cheese, meat, topping, amountOfTaco, extraMeat, extraCheese);
+    public SingleTaco(String shell, List<String> cheese, List<String> meat, List<String> topping, boolean extraMeat, boolean extraCheese) {
+        super(shell, cheese, meat, topping, extraMeat, extraCheese);
     }
 
     @Override

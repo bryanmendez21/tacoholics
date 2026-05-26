@@ -24,7 +24,7 @@ public class OrderScreen implements Screen{
                 case 1 -> new AddTaco().display();
                 case 2 -> System.out.println("add drink");
                 case 3 -> System.out.println("add chips and salsa");
-                case 4 -> System.out.println("checkout");
+                case 4 -> new Checkout().display();
                 case 0 -> running = false;
                 default -> System.out.println("Invalid Input");
             }
