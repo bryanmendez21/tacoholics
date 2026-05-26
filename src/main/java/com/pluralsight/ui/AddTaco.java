@@ -12,6 +12,11 @@ public class AddTaco implements Screen{
     private boolean extraMeat;
     private boolean extraCheese;
 
+    @Override
+    public void display() {
+        buildTaco();
+    }
+
     public Taco buildTaco(){
         int type = tacoType();
         String shell = shell();
@@ -25,11 +30,6 @@ public class AddTaco implements Screen{
         } else {
             return new ThreeTacoPlate(shell,meat,cheese,toppings,extraMeat,extraCheese);
         }
-    }
-
-    @Override
-    public void display() {
-        buildTaco();
     }
 
     public int tacoType(){

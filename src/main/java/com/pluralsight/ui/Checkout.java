@@ -1,20 +1,25 @@
 package com.pluralsight.ui;
 
+import com.pluralsight.model.Cart;
 import com.pluralsight.model.Taco;
 
-import java.util.ArrayList;
 
 public class Checkout implements Screen{
+    private Cart cart;
+
+    public Checkout(Cart cart) {
+        this.cart = cart;
+    }
+
     @Override
     public void display(){
         System.out.println("CHECK OUT");
-        ArrayList<Taco> checkoutTaco = new ArrayList<>();
-        checkoutTaco.add(new AddTaco().buildTaco());
-
-        for(Taco t: checkoutTaco){
-            t.description();
-            System.out.println("price " + t.getPrice());
+        for (Taco taco : cart.getItems()){
+            taco.description();
+            System.out.println("Prices " + taco.getPrice());
         }
+        System.out.println("Total: " + cart.getTotal());
+
     }
 
 }
