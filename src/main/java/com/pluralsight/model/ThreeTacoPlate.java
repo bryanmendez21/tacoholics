@@ -10,7 +10,20 @@ public class ThreeTacoPlate extends Taco {
 
     @Override
     public double getPrice(){
-        return 9.00;
+        double price = 9.00;
+
+        if(extraMeat){
+            price += 1.00;
+        }
+        if(!cheese.isEmpty()){
+            price += 1.50;
+        }
+        if(extraCheese){
+            price += .60;
+        }
+
+        return price;
+
     }
 
     @Override

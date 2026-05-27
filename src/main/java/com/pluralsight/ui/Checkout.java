@@ -1,8 +1,6 @@
 package com.pluralsight.ui;
 
-import com.pluralsight.model.Cart;
-import com.pluralsight.model.Drink;
-import com.pluralsight.model.Taco;
+import com.pluralsight.model.*;
 
 
 public class Checkout implements Screen{
@@ -22,6 +20,14 @@ public class Checkout implements Screen{
         for (Drink drink : cart.getDrinks()){
             drink.description();
             System.out.println("Price: " + drink.getPrice());
+        }
+        for (Burrito burrito : cart.getBurrito()){
+            burrito.description();
+            System.out.println("Price: " + burrito.getPrice());
+        }
+        for (ChipsAndSalsa chipSalsa : cart.getChipSalsa()){
+            chipSalsa.description();
+            System.out.println("Price: " + chipSalsa.getPrice());
         }
 
         System.out.printf("%n========================%nTotal: $%.2f%n", cart.getTotal());
