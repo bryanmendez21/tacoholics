@@ -44,29 +44,34 @@ At Tacoholics, every order is personal. Customers build their tacos exactly how 
 tacoholics/
 ├── com.pluralsight/
 │   ├── ui/
-│   │   ├── MainMenu.java
+│   │   ├── AddBurrito.java
+│   │   ├── AddChipsAndSalsa.java
+│   │   ├── AddDrink.java
+│   │   ├── AddOns.java
+│   │   ├── AddTaco.java
+│   │   ├── Checkout.java
+│   │   ├── HomeScreen.java
 │   │   ├── OrderScreen.java
-│   │   └── CheckoutScreen.java
-│   ├── models/
-│   │   ├── TacoItem.java
-│   │   ├── Order.java
-│   │   ├── Customer.java
-│   │   ├── Menu.java
-│   │   └── Receipt.java
-│   ├── payment/
 │   │   ├── Payment.java
-│   │   ├── CashPayment.java
-│   │   └── CardPayment.java
-│   │ 
+│   │   └── Screen.java
+│   ├── models/
+│   │   ├── Taco.java
+│   │   ├── Burrito.java
+│   │   ├── ChipsAndSalsa.java
+│   │   ├── Drink.java
+│   │   ├── Ingredients.java
+│   │   ├── MenuItem.java
+│   │   ├── SignatureTacoPlate.java
+│   │   ├── SingleTaco.java
+│   │   ├── Taco.java
+│   │   └── Taco.java
 │   │ 
 │   └── util/
 │       ├── AnsiCode.java
-│       ├── ReceiptWriter.java
-│       └──
-│ 
-│ 
-├── diagrams/
-│   └── diagram.png
+│       └──  ReceiptWriter.java
+│       
+├── Main.java
+│  
 └── README.md
 ```
 
