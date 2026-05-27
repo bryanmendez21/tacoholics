@@ -33,7 +33,7 @@ public class Cart {
         }
 
         public void addCrema(int count){
-            limeCount += count;
+            cremaCount += count;
         }
 
         public ArrayList<Taco> getTacos(){
@@ -79,4 +79,12 @@ public class Cart {
             return total;
         }
 
+        public void clearCart(){
+            itemTaco.clear();
+            itemBurrito.clear();
+            itemDrink.clear();
+            itemChipSalsa.clear();
+            limeCount = 0;
+            cremaCount = 0;
+        }
 }

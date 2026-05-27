@@ -30,7 +30,7 @@ public class OrderScreen implements Screen{
                 case 1 -> cart.addTaco(new AddTaco().buildTaco());
                 case 2 -> cart.addBurrito(new AddBurrito().buildBurrito());
                 case 3 -> cart.addDrink(new AddDrink().buildDrink());
-                case 4 -> cart.addChipSalsa(new AddOns(cart).buildChipAndSalsa());
+                case 4 -> cart.addChipSalsa(new AddChipsAndSalsa().buildChipAndSalsa());
                 case 5 -> new AddOns(cart).display();
                 case 6 -> new Checkout(cart).display();
                 case 0 -> running = false;

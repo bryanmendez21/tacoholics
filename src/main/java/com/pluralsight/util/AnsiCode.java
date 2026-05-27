@@ -25,7 +25,7 @@ public class AnsiCode {
 
         // Headers
         System.out.printf(CYAN + BOLD +
-                "║ %-24s %-6s %-10s %-10s ║%n",
+                "║ %-24s %-6s %-10s %-11s ║%n",
                 "ITEM", "QTY", "PRICE", "TOTAL" + RESET);
 
         System.out.println(CYAN +
@@ -33,8 +33,8 @@ public class AnsiCode {
                 + RESET);
 
         // Taco
-        System.out.printf(WHITE +
-                        "║ 🌮 %-21s %-6d $%-9.2f $%-9.2f ║%n",
+        System.out.printf(CYAN + "║"  + RESET + WHITE +
+                        " 🌮 %-21s %-6d $%-9.2f $%-9.2f ║%n",
                 "Taco (Carne Asada)", 2, 3.99, 7.98);
 
         System.out.printf(GRAY +

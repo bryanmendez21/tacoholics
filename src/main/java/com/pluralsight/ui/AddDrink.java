@@ -2,7 +2,6 @@ package com.pluralsight.ui;
 import com.pluralsight.Main;
 import com.pluralsight.model.Drink;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -21,7 +20,7 @@ public class AddDrink implements Screen{
     }
 
     public double drinkSize(){
-        System.out.printf("%n====Choose Drink size====");
+        System.out.printf("%n====Choose Drink size====%n");
         System.out.printf("1) 24 oz %n2) 36oz %n3) 48oz%n");
         System.out.print("Enter Drink Size: ");
 
