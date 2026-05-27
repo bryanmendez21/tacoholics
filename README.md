@@ -57,8 +57,14 @@ tacoholics/
 │   │   ├── Payment.java
 │   │   ├── CashPayment.java
 │   │   └── CardPayment.java
-│   └
-│       
+│   │ 
+│   │ 
+│   └── util/
+│       ├── AnsiCode.java
+│       ├── ReceiptWriter.java
+│       └──
+│ 
+│ 
 ├── diagrams/
 │   └── diagram.png
 └── README.md
