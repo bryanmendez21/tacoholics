@@ -5,6 +5,7 @@ import com.pluralsight.model.Ingredients;
 import com.pluralsight.model.SingleTaco;
 import com.pluralsight.model.Taco;
 import com.pluralsight.model.ThreeTacoPlate;
+import com.pluralsight.util.AnsiCode;
 
 import java.util.List;
 
@@ -27,20 +28,18 @@ public class AddTaco {
     }
 
     public int tacoType(){
-        System.out.println("1) single taco \n2) 3 taco plate (3 tacos with same ingredients: ");
+        AnsiCode.printTacoType();
+
+        AnsiCode.printSelection();
         int tacoTypeChoice = Main.scanner.nextInt();
 
         return tacoTypeChoice;
     }
 
     public String shell(){
-        System.out.println("Select Shell");
-        System.out.println("1) Corn");
-        System.out.println("2) Flour");
-        System.out.println("3) Hard Shell");
-        System.out.println("4) Bowl");
-        System.out.print("Enter a Value: ");
+        AnsiCode.printShellMenu();
 
+        AnsiCode.printSelection();
         int choice = Main.scanner.nextInt();
 
         String selectedShell = "";

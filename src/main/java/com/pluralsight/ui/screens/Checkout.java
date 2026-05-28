@@ -36,7 +36,7 @@ public class Checkout  {
 
             // Drink
             for (Drink drink : cart.getDrinks()) {
-                String drinkLine = String.format("%-37s %-6s $%-4.2f", "Drink", "-", drink.getPrice());
+                String drinkLine = String.format("%-37s %-6s $%-4.2f", "Drink", "x1", drink.getPrice());
                 String drinkDesc = String.format("  - %-46.46s", drink.description());
                 System.out.println(CYAN + BOLD + "║ " + WHITE + String.format("%-50.50s", drinkLine) + CYAN + BOLD + " ║" + RESET);
                 System.out.println(CYAN + BOLD + "║ " + GRAY  + String.format("%-50.50s", drinkDesc) + CYAN + BOLD + " ║" + RESET);
@@ -45,7 +45,7 @@ public class Checkout  {
 
             // Burrito
             for (Burrito burrito : cart.getBurrito()) {
-                String burritoLine = String.format("%-37s %-6s $%-4.2f", "Burrito", "-", burrito.getPrice());
+                String burritoLine = String.format("%-37s %-6s $%-4.2f", "Burrito", "x1", burrito.getPrice());
                 String burritoDesc = String.format("  - %-46.46s", burrito.description());
                 System.out.println(CYAN + BOLD + "║ " + WHITE + String.format("%-50.50s", burritoLine) + CYAN + BOLD + " ║" + RESET);
                 System.out.println(CYAN + BOLD + "║ " + GRAY  + String.format("%-50.50s", burritoDesc) + CYAN + BOLD + " ║" + RESET);
@@ -54,7 +54,7 @@ public class Checkout  {
 
             // Chips and Salsa
             for (ChipsAndSalsa chipSalsa : cart.getChipSalsa()) {
-                String chipsLine = String.format("%-37s %-6s $%-4.2f", "Chips & Salsa", "-", chipSalsa.getPrice());
+                String chipsLine = String.format("%-37s %-6s $%-4.2f", "Chips & Salsa", "x1", chipSalsa.getPrice());
                 String chipsDesc = String.format("  - %-46.46s", chipSalsa.description());
                 System.out.println(CYAN + BOLD + "║ " + WHITE + String.format("%-50.50s", chipsLine) + CYAN + BOLD + " ║" + RESET);
                 System.out.println(CYAN + BOLD + "║ " + GRAY  + String.format("%-50.50s", chipsDesc) + CYAN + BOLD + " ║" + RESET);
@@ -80,6 +80,7 @@ public class Checkout  {
 
             AnsiCode.printCheckoutMenu();
 
+            AnsiCode.printSelection();
             int checkoutChoice = Main.scanner.nextInt();
             Main.scanner.nextLine();
 

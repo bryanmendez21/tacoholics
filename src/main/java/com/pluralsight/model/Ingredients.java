@@ -1,6 +1,7 @@
 package com.pluralsight.model;
 
 import com.pluralsight.Main;
+import com.pluralsight.util.AnsiCode;
 
 import java.util.ArrayList;
 
@@ -20,14 +21,9 @@ public class Ingredients {
         ArrayList<String> selectedMeat = new ArrayList<>();
 
         do{
-            System.out.println("Select Meat");
-            System.out.println("1) Carne Asada/Beef");
-            System.out.println("2) Al Pastor/Pork");
-            System.out.println("3) Carnitas/Pork");
-            System.out.println("4) Pollo/Chicken");
-            System.out.println("5) Chorizo/");
-            System.out.println("6) Pescado/Fish");
-            System.out.print("Enter a Value: ");
+            AnsiCode.printMeatMenu();
+
+            AnsiCode.printSelection();
 
             int meatChoice = Main.scanner.nextInt();
             Main.scanner.nextLine();
@@ -42,7 +38,7 @@ public class Ingredients {
                 default -> System.out.println("Invalid Input");
             }
 
-            System.out.print("Extra Meat .50 More (yes/no): ");
+            AnsiCode.printExtraMeat();
             extraMeat = Main.scanner.nextLine().equalsIgnoreCase("yes");
 
         } while (extraMeat);
@@ -55,14 +51,9 @@ public class Ingredients {
         ArrayList<String> selectedCheese = new ArrayList<>();
 
         do {
-            System.out.println("Add Cheese For .75 More");
-            System.out.println("1) Queso Fresco");
-            System.out.println("2) Oaxaca");
-            System.out.println("3) Cotija");
-            System.out.println("4) Cheddar");
-            System.out.println("0) No Cheese");
+            AnsiCode.printCheeseMenu();
 
-            System.out.print("Enter a Value: ");
+            AnsiCode.printSelection();
 
             int cheeseChoice = Main.scanner.nextInt();
             Main.scanner.nextLine();
@@ -76,7 +67,7 @@ public class Ingredients {
                 default -> System.out.println("Invalid Input");
             }
             if (cheeseChoice != 0) {
-                System.out.print("Extra Cheese .50 More (yes/no): ");
+                AnsiCode.printExtraCheese();
                 extraCheese = Main.scanner.nextLine().equalsIgnoreCase("yes");
             }
         } while (extraCheese);
@@ -89,17 +80,9 @@ public class Ingredients {
         String moreTopping;
 
         do {
-            System.out.println("Select toppings");
-            System.out.println("1) Lettuce");
-            System.out.println("2) Cilantro");
-            System.out.println("3) Onion");
-            System.out.println("4) Tomatoes");
-            System.out.println("5) Jalapenos");
-            System.out.println("6) Radishes");
-            System.out.println("7) Pico de Gallo");
-            System.out.println("8) Corn");
-            System.out.println("9) Guacamole");
-            System.out.print("Enter a Value: ");
+            AnsiCode.printToppingsMenu();
+
+            AnsiCode.printSelection();
 
             int toppingChoice = Main.scanner.nextInt();
             Main.scanner.nextLine();
@@ -118,7 +101,7 @@ public class Ingredients {
 
             }
 
-            System.out.print("More Topping (yes/no): ");
+            AnsiCode.printMoreToppings();
             moreTopping = Main.scanner.nextLine();
 
         } while(moreTopping.equalsIgnoreCase("yes"));

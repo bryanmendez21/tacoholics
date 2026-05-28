@@ -23,6 +23,6 @@ public class ChipsAndSalsa implements MenuItem{
 
     @Override
     public String description() {
-        return String.format("Price: %.2f | Flavor: %s",getPrice(),flavor);
+        return String.format("Flavor: %s", flavor);
     }
 }

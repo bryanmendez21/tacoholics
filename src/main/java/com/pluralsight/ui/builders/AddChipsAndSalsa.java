@@ -2,6 +2,7 @@ package com.pluralsight.ui.builders;
 
 import com.pluralsight.Main;
 import com.pluralsight.model.ChipsAndSalsa;
+import com.pluralsight.util.AnsiCode;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -18,8 +19,6 @@ public class AddChipsAndSalsa {
     public String salsaFlavor(){
         Map<Integer,String> salsa = new LinkedHashMap<>();
 
-        System.out.println("===Available Salsa Flavors===");
-
         salsa.put(1, "Salsa Verde");
         salsa.put(2, "Salsa Roja");
         salsa.put(3, "Chipotle");
@@ -29,12 +28,9 @@ public class AddChipsAndSalsa {
         salsa.put(7, "Molcajete Salsa");
         salsa.put(8, "Chile de Arbol salsa");
 
+        AnsiCode.printSalsaMenu();
 
-        for(Map.Entry<Integer,String> entry : salsa.entrySet()){
-            System.out.println(entry.getKey() + ") " + entry.getValue());
-        }
-
-        System.out.print("Choose a Salsa Flavor: ");
+        AnsiCode.printSelection();
         int salsaChoice = Main.scanner.nextInt();
 
         return salsa.get(salsaChoice);

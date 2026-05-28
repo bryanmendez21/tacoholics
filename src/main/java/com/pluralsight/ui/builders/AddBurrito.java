@@ -3,6 +3,7 @@ package com.pluralsight.ui.builders;
 import com.pluralsight.Main;
 import com.pluralsight.model.Burrito;
 import com.pluralsight.model.Ingredients;
+import com.pluralsight.util.AnsiCode;
 
 import java.util.List;
 
@@ -23,12 +24,9 @@ public class AddBurrito {
     }
 
     public String tortilla(){
-        System.out.println("Select Tortilla");
-        System.out.println("1) Flour");
-        System.out.println("2) Whole Wheat");
-        System.out.println("3) Spinach");
-        System.out.println("4) bowl");
-        System.out.print("Enter a Value: ");
+        AnsiCode.printTortillaMenu();
+
+        AnsiCode.printSelection();
 
         int choice = Main.scanner.nextInt();
 
@@ -47,12 +45,9 @@ public class AddBurrito {
 
 
     public String beans(){
-        System.out.println("Select Beans");
-        System.out.println("1) Black Beans");
-        System.out.println("2) Pinto Beans");
-        System.out.println("3) Refried Beans");
-        System.out.println("4) No Beans");
-        System.out.print("Enter a Value: ");
+        AnsiCode.printBeansMenu();
+
+        AnsiCode.printSelection();
 
         int choice = Main.scanner.nextInt();
 
@@ -71,12 +66,9 @@ public class AddBurrito {
 
 
     public String rice(){
-        System.out.println("Select Rice");
-        System.out.println("1) White Rice");
-        System.out.println("2) Mexican Rice");
-        System.out.println("3) Cilantro Lime Rice");
-        System.out.println("4) No Rice");
-        System.out.print("Enter a Value: ");
+        AnsiCode.printRiceMenu();
+
+        AnsiCode.printSelection();
 
         int choice = Main.scanner.nextInt();
 

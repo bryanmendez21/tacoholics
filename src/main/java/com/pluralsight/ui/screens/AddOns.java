@@ -3,6 +3,7 @@ package com.pluralsight.ui.screens;
 import com.pluralsight.Main;
 import com.pluralsight.model.Cart;
 import com.pluralsight.ui.Screen;
+import com.pluralsight.util.AnsiCode;
 
 
 public class AddOns implements Screen {
@@ -14,10 +15,9 @@ public class AddOns implements Screen {
 
     @Override
     public void display() {
-        System.out.println("1) Add lime wedges");
-        System.out.println("2) Add crema on the side");
+        AnsiCode.printAddOnMenu();
 
-        System.out.println("Enter a Value: ");
+        AnsiCode.printSelection();
         int addOnChoice = Main.scanner.nextInt();
 
         switch (addOnChoice){
@@ -28,12 +28,12 @@ public class AddOns implements Screen {
     }
 
     public int limeAmount(){
-        System.out.print("How many limes would you like: ");
+        AnsiCode.printLimePrompt();
         return Main.scanner.nextInt();
     }
 
     public int cremaAmount(){
-        System.out.print("How many crema sides would you like: ");
+        AnsiCode.printCremaPrompt();
         return Main.scanner.nextInt();
     }
 

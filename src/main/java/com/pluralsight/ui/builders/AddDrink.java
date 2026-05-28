@@ -1,6 +1,7 @@
 package com.pluralsight.ui.builders;
 import com.pluralsight.Main;
 import com.pluralsight.model.Drink;
+import com.pluralsight.util.AnsiCode;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -15,11 +16,11 @@ public class AddDrink {
     }
 
     public double drinkSize(){
-        System.out.printf("%n====Choose Drink size====%n");
-        System.out.printf("1) 24 oz %n2) 36oz %n3) 48oz%n");
-        System.out.print("Enter Drink Size: ");
+        AnsiCode.printDrinkSizeMenu();
 
+        AnsiCode.printSelection();
         int drinkChoice = Main.scanner.nextInt();
+
         double size = 0;
 
         switch(drinkChoice){
@@ -32,8 +33,6 @@ public class AddDrink {
 
     public String drinkFlavor(){
         Map<Integer,String> drinks = new LinkedHashMap<>();
-
-        System.out.println("===Available Drink Flavors===");
 
         drinks.put(1, "Coke");
         drinks.put(2, "Diet Coke");
@@ -56,11 +55,9 @@ public class AddDrink {
         drinks.put(19, "Baja Blast");
         drinks.put(20, "Strawberry Lemonade");
 
-        for(Map.Entry<Integer,String> entry : drinks.entrySet()){
-            System.out.println(entry.getKey() + ") " + entry.getValue());
-        }
+        AnsiCode.printDrinkFlavorMenu();
 
-        System.out.print("Choose a drink: ");
+        AnsiCode.printSelection();
         int drinkChoice = Main.scanner.nextInt();
 
         return drinks.get(drinkChoice);
