@@ -26,7 +26,7 @@ public class SingleTaco extends Taco {
 
     @Override
     public String description() {
-        return String.format("Meat: %s %nCheese: %s%nToppings: %s", meat, cheese, topping);
+        return String.format("M: %s|C: %s|T: %s", meat, cheese, topping);
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.pluralsight.ui.screens;
 import com.pluralsight.Main;
 import com.pluralsight.model.Cart;
 import com.pluralsight.ui.Screen;
+import com.pluralsight.util.AnsiCode;
 import com.pluralsight.util.ReceiptWriter;
 
 public class Payment implements Screen {
@@ -17,17 +18,19 @@ public class Payment implements Screen {
         boolean validPayment = false;
 
         while(!validPayment) {
-            System.out.println("Enter Card Number (16 digits): ");
+            AnsiCode.printPaymentMenu();
+
+            AnsiCode.printPaymentPrompt(" Card Number (16 digits): ");
             String cardNumber = Main.scanner.nextLine();
 
-            System.out.println("Enter Expiration date (MM/YY): ");
+            AnsiCode.printPaymentPrompt(" Expiration date (MM/YY): ");
             String cardExpiration = Main.scanner.nextLine();
 
-            System.out.println("Enter cvv (3 digits): ");
+            AnsiCode.printPaymentPrompt(" cvv (3 digits): ");
             String cardCvv = Main.scanner.nextLine();
 
             if(isValid(cardNumber,cardExpiration,cardCvv)){
-                System.out.println("Payment Successful!");
+                AnsiCode.printPaymentSuccess();
 
                 ReceiptWriter.Write(cart);
 
@@ -36,7 +39,7 @@ public class Payment implements Screen {
                 validPayment = true;
 
             } else {
-                System.out.println("Invalid card info, please try again.");
+                AnsiCode.printInvalidCard();
             }
         }
     }

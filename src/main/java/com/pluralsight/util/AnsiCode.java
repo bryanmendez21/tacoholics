@@ -20,60 +20,6 @@ public class AnsiCode {
     public static final String BOLD = "\u001B[1m";
 
 
-        // Taco
-//        for (Taco taco : cart.getTacos()) {
-//            System.out.printf(CYAN + "║"  + RESET + WHITE +
-//                            " 🌮 %-21s %-6d $%-9.2f $%-9.2f ║%n",
-//                    "Taco", taco.getPrice() + RESET);
-//            System.out.printf(GRAY +
-//                            "║    - %-46s ║%n"
-//                    );
-//        }
-//
-
-
-//        System.out.println(CYAN +
-//                "╟────────────────────────────────────────────────────╢"
-//                + RESET);
-//        // Burrito
-//        System.out.printf(WHITE +
-//                        "║ 🌯 %-21s %-6d $%-9.2f $%-9.2f ║%n",
-//                "Taco (Carne Asada)", 2, 3.99, 7.98);
-//
-//        System.out.printf(GRAY +
-//                        "║    - %-46s ║%n",
-//                "Cheese, Lettuce, Salsa");
-//
-//        System.out.println(CYAN +
-//                "╟────────────────────────────────────────────────────╢"
-//                + RESET);
-//
-//        // Drink
-//        System.out.printf(WHITE +
-//                        "║ 🥤 %-21s %-6d $%-9.2f $%-9.2f ║%n",
-//                "Drink (24oz)", 1, 2.50, 2.50);
-//
-//        System.out.printf(GRAY +
-//                        "║    - %-46s ║%n",
-//                "Ice Cold Coke");
-//
-//        System.out.println(CYAN +
-//                "╟────────────────────────────────────────────────────╢"
-//                + RESET);
-//
-//        // chips and salsa
-//        System.out.printf(WHITE +
-//                        "║ \uD83E\uDED3\uD83C\uDF36\uFE0F %-21s %-6d $%-9.2f $%-9.2f ║%n",
-//                "Chips (Salsa: roja)", 2, 3.99, 7.98);
-//
-//        System.out.printf(GRAY +
-//                        "║    - %-46s ║%n",
-//                "jalapenos, tomatoe, Onion");
-//
-//        System.out.println(CYAN +
-//                "╟────────────────────────────────────────────────────╢"
-//                + RESET);
-
     public static void printBanner(){
         printTop();
 
@@ -86,16 +32,9 @@ public class AnsiCode {
     }
 
     public static void printHeader(){
+        System.out.printf(CYAN + BOLD + "║ %-36s %-7s %-4s ║%n" + RESET, "ITEM", "QTY", "PRICE");
 
-
-        System.out.printf(CYAN + BOLD +
-                        "║ %-24s %-6s %-10s %-11s ║%n",
-                "ITEM", "QTY", "PRICE", "TOTAL" + RESET);
-
-        System.out.println(CYAN +
-                "╟────────────────────────────────────────────────────╢"
-                + RESET);
-
+        System.out.println(CYAN + "╟────────────────────────────────────────────────────╢" + RESET);
     }
 
     public static void printHomeMenu(){
@@ -135,8 +74,19 @@ public class AnsiCode {
         printBottom();
     }
 
+    public static void printCheckoutMenu(){
+        System.out.printf(CYAN + BOLD + "║ " + SILVER + "[" + GREEN + "1" + SILVER + "] " + WHITE + "%-47s" + CYAN + "║%n" + RESET, " Proceed with Payment");
+        System.out.printf(CYAN + BOLD + "║ " + SILVER + "[" + YELLOW + "2" + SILVER + "] " + WHITE + "%-47s" + CYAN + "║%n" + RESET, " Return to Menu");
+        System.out.printf(CYAN + BOLD + "║ " + SILVER + "[" + RED + "0" + SILVER + "] " + WHITE + "%-47s" + CYAN + "║%n" + RESET, " Cancel");
+        AnsiCode.printBottom();
+    }
+
     public static void printInvalid(){
-        System.out.printf(CYAN + BOLD + "║ " + RED + "✖ "  + "%-44s" + CYAN + " ║%n" + RESET,"Invalid Input");
+        System.out.printf(RED + "✖ "  + "%-44s%n" + RESET,"Invalid Input");
+    }
+
+    public static void printInvalidCard(){
+        System.out.println(RED + "Invalid card info, please try again."+ RESET);
     }
 
     public static void printSelection(){
@@ -155,32 +105,42 @@ public class AnsiCode {
         System.out.println(CYAN + BOLD + "╚════════════════════════════════════════════════════╝" + RESET);
     }
 
-    public static void printTotal(){
-                System.out.printf(GREEN + BOLD +
-                        "║ %-35s $%-12.2f ║%n",
-                "SUBTOTAL:", 13.73);
+    public static void printTotal(double subtotal, double tax, double total){
+        String subLine   = String.format("%-37s $%-8.2f", "SUBTOTAL:", subtotal);
+        String taxLine   = String.format("%-37s $%-8.2f", "TAX (8.00%):", tax);
+        String totalLine = String.format("%-37s $%-8.2f", "TOTAL:", total);
 
-        System.out.printf(GREEN + BOLD +
-                        "║ %-35s $%-12.2f ║%n",
-                "TAX (8.00%):", 1.10);
-
-        System.out.println(CYAN +
-                "╟────────────────────────────────────────────────────╢"
-                + RESET);
-
-        System.out.printf(MAGENTA + BOLD +
-                        "║ %-35s $%-12.2f ║%n",
-                "TOTAL:", 14.83);
-
-        System.out.println(CYAN + BOLD +
-                "╚════════════════════════════════════════════════════╝"
-                + RESET);
-
-        System.out.println();
-
-        //Footer
-        System.out.println(MAGENTA + BOLD +
-                "        Thank you! Come again!" + RESET);
+        System.out.println(CYAN + BOLD + "║ " + GREEN   + BOLD + String.format("%-50.50s", subLine)   + CYAN + BOLD + " ║" + RESET);
+        System.out.println(CYAN + BOLD + "║ " + GREEN   + BOLD + String.format("%-50.50s", taxLine)   + CYAN + BOLD + " ║" + RESET);
+        AnsiCode.printMiddle();
+        System.out.println(CYAN + BOLD + "║ " + MAGENTA + BOLD + String.format("%-50.50s", totalLine) + CYAN + BOLD + " ║" + RESET);
+        AnsiCode.printMiddle();
     }
 
+    public static void printFooter(){
+        System.out.println(MAGENTA + BOLD + "        Thank you! Come again!" + RESET);
+    }
+
+    public static void printPaymentMenu(){
+        printBanner();
+        System.out.println(CYAN + BOLD + "║ " + GRAY  + String.format("%-50.50s", "  PAYMENT") + CYAN + BOLD + " ║" + RESET);
+        System.out.println(CYAN + BOLD + "║" + GRAY + BOLD + "  ──────────────────────────────────────            " + CYAN + BOLD + "║" + RESET);
+        System.out.printf(CYAN + BOLD + "║ " + WHITE + "%-50s" + CYAN + " ║%n" + RESET, " Card Number (16 digits):");
+        System.out.printf(CYAN + BOLD + "║ " + WHITE + "%-50s" + CYAN + " ║%n" + RESET, " Expiration Date (MM/YY):");
+        System.out.printf(CYAN + BOLD + "║ " + WHITE + "%-50s" + CYAN + " ║%n" + RESET, " CVV (3 digits):");
+
+    }
+
+    public static void printPaymentPrompt(String prompt){
+        printMiddle();
+        System.out.print(CYAN + BOLD + "║ " + YELLOW + String.format("%-50.50s", prompt) + CYAN + BOLD + " ║" + RESET);
+        System.out.print("\n" + GRAY + BOLD + "  ══> " + RESET + WHITE);
+    }
+
+    public static void printPaymentSuccess(){
+        printTop();
+        System.out.println(CYAN + BOLD + "║ " + GREEN + BOLD + String.format("%-50.50s", "  ✔  Payment Successful!") + CYAN + BOLD + " ║" + RESET);
+        printBottom();
+        printFooter();
+    }
 }

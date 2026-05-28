@@ -20,41 +20,65 @@ public class Checkout implements Screen {
         boolean running = true;
 
         while (running) {
-            System.out.println("CHECK OUT");
 
             AnsiCode.printBanner();
+            AnsiCode.printHeader();
 
             // Taco
             for (Taco taco : cart.getTacos()) {
                 String label = taco instanceof ThreeTacoPlate ? "3 Taco Plate" : "Single Taco";
-                System.out.printf(CYAN + "║" + RESET + WHITE +
-                                " 🌮 %-20s %-6d $%-9.2f ║%n",
-                         label, taco.getQuantity(), taco.getPrice());
-                System.out.printf(GRAY + "║- %-46s ║%n", taco.description());
+                String tacoLine = String.format("%-37s x%-6d $%-4.2f", label, taco.getQuantity(), taco.getPrice());
+                String tacoDesc = String.format("  - %-46.46s", taco.description());
+                System.out.println(CYAN + BOLD + "║ " + WHITE + String.format("%-50.50s", tacoLine) + CYAN + BOLD + " ║" + RESET);
+                System.out.println(CYAN + BOLD + "║ " + GRAY  + String.format("%-50.50s", tacoDesc) + CYAN + BOLD + " ║" + RESET);
+                AnsiCode.printMiddle();
             }
+
+// Drink
             for (Drink drink : cart.getDrinks()) {
-                drink.description();
-                System.out.println("Price: " + drink.getPrice());
+                String drinkLine = String.format("%-37s %-6s $%-4.2f", "Drink", "-", drink.getPrice());
+                String drinkDesc = String.format("  - %-46.46s", drink.description());
+                System.out.println(CYAN + BOLD + "║ " + WHITE + String.format("%-50.50s", drinkLine) + CYAN + BOLD + " ║" + RESET);
+                System.out.println(CYAN + BOLD + "║ " + GRAY  + String.format("%-50.50s", drinkDesc) + CYAN + BOLD + " ║" + RESET);
+                AnsiCode.printMiddle();
             }
+
+// Burrito
             for (Burrito burrito : cart.getBurrito()) {
-                burrito.description();
-                System.out.println("Price: " + burrito.getPrice());
+                String burritoLine = String.format("%-37s %-6s $%-4.2f", "Burrito", "-", burrito.getPrice());
+                String burritoDesc = String.format("  - %-46.46s", burrito.description());
+                System.out.println(CYAN + BOLD + "║ " + WHITE + String.format("%-50.50s", burritoLine) + CYAN + BOLD + " ║" + RESET);
+                System.out.println(CYAN + BOLD + "║ " + GRAY  + String.format("%-50.50s", burritoDesc) + CYAN + BOLD + " ║" + RESET);
+                AnsiCode.printMiddle();
             }
+
+// Chips and Salsa
             for (ChipsAndSalsa chipSalsa : cart.getChipSalsa()) {
-                chipSalsa.description();
-                System.out.println("Price: " + chipSalsa.getPrice());
+                String chipsLine = String.format("%-37s %-6s $%-4.2f", "Chips & Salsa", "-", chipSalsa.getPrice());
+                String chipsDesc = String.format("  - %-46.46s", chipSalsa.description());
+                System.out.println(CYAN + BOLD + "║ " + WHITE + String.format("%-50.50s", chipsLine) + CYAN + BOLD + " ║" + RESET);
+                System.out.println(CYAN + BOLD + "║ " + GRAY  + String.format("%-50.50s", chipsDesc) + CYAN + BOLD + " ║" + RESET);
+                AnsiCode.printMiddle();
             }
 
+
+            // Lime
             if (cart.getLimeCount() > 0)
-                System.out.println("Lime Wedges X" + cart.getLimeCount() + " - Free");
+                System.out.printf(CYAN + "║ " + RESET + WHITE + "%-37s x%-3d  %-4s" + CYAN + BOLD + " ║%n","Lime Wedges ", cart.getLimeCount(), " -Free");
+
+            // Cream
             if (cart.getCremaCount() > 0)
-                System.out.println("Crema on the side X" + cart.getCremaCount() + " - Free");
+                System.out.printf(CYAN + "║ " + RESET + WHITE + "%-37s x%-3d  %-4s" + CYAN + BOLD + " ║%n","Crema on the side ", cart.getCremaCount(), " -Free");
 
-            System.out.printf("%n========================%nTotal: $%.2f%n", cart.getTotal());
 
-            System.out.println("1) Proceed with Payment");
-            System.out.println("2) Return to Menu");
-            System.out.println("0) Cancel");
+            double subtotal = cart.getTotal();
+            double tax = subtotal * 0.08;
+
+            AnsiCode.printMiddle();
+
+            AnsiCode.printTotal(subtotal, tax, subtotal + tax);
+
+            AnsiCode.printCheckoutMenu();
 
             int checkoutChoice = Main.scanner.nextInt();
             Main.scanner.nextLine();

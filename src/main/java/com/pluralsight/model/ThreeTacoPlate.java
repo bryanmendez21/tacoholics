@@ -28,7 +28,7 @@ public class ThreeTacoPlate extends Taco {
 
     @Override
     public String description() {
-        return String.format("Meat: %s|Cheese: %s|Toppings: %s", meat, cheese, topping);
+        return String.format("M: %s|C: %s|T: %s", meat, cheese, topping);
     }
 
     @Override
