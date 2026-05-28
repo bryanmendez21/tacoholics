@@ -118,7 +118,7 @@ public class AnsiCode {
     }
 
     public static void printFooter(){
-        System.out.println(MAGENTA + BOLD + "        Thank you! Come again!" + RESET);
+        System.out.println(MAGENTA + BOLD + "               Thank you! Come again!" + RESET);
     }
 
     public static void printPaymentMenu(){
@@ -128,18 +128,18 @@ public class AnsiCode {
         System.out.printf(CYAN + BOLD + "║ " + WHITE + "%-50s" + CYAN + " ║%n" + RESET, " Card Number (16 digits):");
         System.out.printf(CYAN + BOLD + "║ " + WHITE + "%-50s" + CYAN + " ║%n" + RESET, " Expiration Date (MM/YY):");
         System.out.printf(CYAN + BOLD + "║ " + WHITE + "%-50s" + CYAN + " ║%n" + RESET, " CVV (3 digits):");
-
+        printBottom();
     }
 
     public static void printPaymentPrompt(String prompt){
-        printMiddle();
-        System.out.print(CYAN + BOLD + "║ " + YELLOW + String.format("%-50.50s", prompt) + CYAN + BOLD + " ║" + RESET);
+        System.out.println(GRAY + BOLD + "  ──────────────────────────────────────────────────" + RESET);
+        System.out.print(YELLOW + "  " + String.format("%-50.50s", prompt) + RESET);
         System.out.print("\n" + GRAY + BOLD + "  ══> " + RESET + WHITE);
     }
 
     public static void printPaymentSuccess(){
         printTop();
-        System.out.println(CYAN + BOLD + "║ " + GREEN + BOLD + String.format("%-50.50s", "  ✔  Payment Successful!") + CYAN + BOLD + " ║" + RESET);
+        System.out.println(CYAN + BOLD + "║ " + GREEN + BOLD + String.format("%-50.50s", "             Payment Successful!") + CYAN + BOLD + " ║" + RESET);
         printBottom();
         printFooter();
     }

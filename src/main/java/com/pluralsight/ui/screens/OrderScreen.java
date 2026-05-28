@@ -33,7 +33,10 @@ public class OrderScreen implements Screen {
                 case 3 -> cart.addDrink(new AddDrink().buildDrink());
                 case 4 -> cart.addChipSalsa(new AddChipsAndSalsa().buildChipAndSalsa());
                 case 5 -> new AddOns(cart).display();
-                case 6 -> new Checkout(cart).display();
+                case 6 -> {
+                    boolean paid = new Checkout(cart).display();
+                    if(paid || cart.isEmpty()) running = false;
+                }
                 case 0 -> running = false;
                 default -> System.out.println("Invalid Input");
             }

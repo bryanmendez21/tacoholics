@@ -8,16 +8,16 @@ import com.pluralsight.util.AnsiCode;
 import static com.pluralsight.util.AnsiCode.*;
 
 
-public class Checkout implements Screen {
+public class Checkout  {
     private Cart cart;
 
     public Checkout(Cart cart) {
         this.cart = cart;
     }
 
-    @Override
-    public void display(){
+    public boolean display(){
         boolean running = true;
+        boolean paid = false;
 
         while (running) {
 
@@ -34,7 +34,7 @@ public class Checkout implements Screen {
                 AnsiCode.printMiddle();
             }
 
-// Drink
+            // Drink
             for (Drink drink : cart.getDrinks()) {
                 String drinkLine = String.format("%-37s %-6s $%-4.2f", "Drink", "-", drink.getPrice());
                 String drinkDesc = String.format("  - %-46.46s", drink.description());
@@ -43,7 +43,7 @@ public class Checkout implements Screen {
                 AnsiCode.printMiddle();
             }
 
-// Burrito
+            // Burrito
             for (Burrito burrito : cart.getBurrito()) {
                 String burritoLine = String.format("%-37s %-6s $%-4.2f", "Burrito", "-", burrito.getPrice());
                 String burritoDesc = String.format("  - %-46.46s", burrito.description());
@@ -52,7 +52,7 @@ public class Checkout implements Screen {
                 AnsiCode.printMiddle();
             }
 
-// Chips and Salsa
+            // Chips and Salsa
             for (ChipsAndSalsa chipSalsa : cart.getChipSalsa()) {
                 String chipsLine = String.format("%-37s %-6s $%-4.2f", "Chips & Salsa", "-", chipSalsa.getPrice());
                 String chipsDesc = String.format("  - %-46.46s", chipSalsa.description());
@@ -84,14 +84,19 @@ public class Checkout implements Screen {
             Main.scanner.nextLine();
 
             switch (checkoutChoice) {
-                case 1 -> new Payment(cart).display();
+                case 1 -> {
+                    paid = new Payment(cart).display();
+                    if(paid) running = false;
+                }
                 case 2 -> running = false;
                 case 0 -> {
-                    return;
-
+                    cart.clearCart();
+                    return false;
                 }
             }
         }
+        return paid;
     }
+
 
 }

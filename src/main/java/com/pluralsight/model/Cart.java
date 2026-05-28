@@ -87,4 +87,8 @@ public class Cart {
             limeCount = 0;
             cremaCount = 0;
         }
+
+        public boolean isEmpty(){
+            return itemTaco.isEmpty() && itemDrink.isEmpty() && itemBurrito.isEmpty() && itemChipSalsa.isEmpty();
+        }
 }

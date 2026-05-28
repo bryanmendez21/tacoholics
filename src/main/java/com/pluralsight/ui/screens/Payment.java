@@ -6,15 +6,15 @@ import com.pluralsight.ui.Screen;
 import com.pluralsight.util.AnsiCode;
 import com.pluralsight.util.ReceiptWriter;
 
-public class Payment implements Screen {
+public class Payment {
     private Cart cart;
 
     public Payment(Cart cart) {
         this.cart = cart;
     }
 
-    @Override
-    public void display() {
+
+    public Boolean display() {
         boolean validPayment = false;
 
         while(!validPayment) {
@@ -42,6 +42,7 @@ public class Payment implements Screen {
                 AnsiCode.printInvalidCard();
             }
         }
+        return true;
     }
 
     public boolean isValid(String cardNumber,String expiry,String cvv) {
