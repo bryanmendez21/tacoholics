@@ -1,4 +1,4 @@
-package com.pluralsight.ui;
+package com.pluralsight.ui.builders;
 
 import com.pluralsight.Main;
 import com.pluralsight.model.ChipsAndSalsa;

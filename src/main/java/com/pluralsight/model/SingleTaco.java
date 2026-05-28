@@ -25,7 +25,12 @@ public class SingleTaco extends Taco {
     }
 
     @Override
-    public void description() {
-        System.out.printf("===== Taco Details =====%nMeat: %s%nExtra Meat: %b%nCheese: %s%nExtra Cheese: %b%nToppings: %s%n========================%n", meat, extraMeat, cheese, extraCheese, topping);
+    public String description() {
+        return String.format("Meat: %s %nCheese: %s%nToppings: %s", meat, cheese, topping);
+    }
+
+    @Override
+    public int getQuantity(){
+        return 1;
     }
 }

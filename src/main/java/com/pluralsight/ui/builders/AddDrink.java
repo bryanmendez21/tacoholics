@@ -1,16 +1,11 @@
-package com.pluralsight.ui;
+package com.pluralsight.ui.builders;
 import com.pluralsight.Main;
 import com.pluralsight.model.Drink;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class AddDrink implements Screen{
-
-    @Override
-    public void display() {
-        buildDrink();
-    }
+public class AddDrink {
 
     public Drink buildDrink(){
         double size = drinkSize();

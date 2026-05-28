@@ -1,4 +1,4 @@
-package com.pluralsight.ui;
+package com.pluralsight.ui.builders;
 
 import com.pluralsight.Main;
 import com.pluralsight.model.Ingredients;
@@ -8,13 +8,8 @@ import com.pluralsight.model.ThreeTacoPlate;
 
 import java.util.List;
 
-public class AddTaco implements Screen{
+public class AddTaco {
     Ingredients custom = new Ingredients();
-
-    @Override
-    public void display() {
-        buildTaco();
-    }
 
     public Taco buildTaco(){
         int type = tacoType();

@@ -1,6 +1,6 @@
 package com.pluralsight;
 
-import com.pluralsight.ui.HomeScreen;
+import com.pluralsight.ui.screens.HomeScreen;
 
 import java.util.Scanner;
 

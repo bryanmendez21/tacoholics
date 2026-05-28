@@ -3,6 +3,6 @@ package com.pluralsight.model;
 public interface MenuItem {
     double getPrice();
 
-    void description();
+    String description();
 
 }

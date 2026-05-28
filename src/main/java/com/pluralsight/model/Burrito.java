@@ -40,8 +40,8 @@ public class Burrito implements MenuItem{
     }
 
     @Override
-    public void description() {
-        System.out.printf("===== Burrito Details =====%nMeat: %s%nCheese: %s%nToppings: %s%n========================%n", meat, cheese,topping);
+    public String description() {
+        return String.format("Meat: %s|Cheese: %s|Toppings: %s", meat, cheese,topping);
     }
 
     public String getTortilla() {

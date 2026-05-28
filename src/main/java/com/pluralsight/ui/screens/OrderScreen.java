@@ -1,12 +1,16 @@
-package com.pluralsight.ui;
+package com.pluralsight.ui.screens;
 
 import com.pluralsight.Main;
-import com.pluralsight.model.Burrito;
 import com.pluralsight.model.Cart;
-import com.pluralsight.model.ChipsAndSalsa;
+import com.pluralsight.ui.Screen;
+import com.pluralsight.ui.builders.AddBurrito;
+import com.pluralsight.ui.builders.AddChipsAndSalsa;
+import com.pluralsight.ui.builders.AddDrink;
+import com.pluralsight.ui.builders.AddTaco;
+import com.pluralsight.util.AnsiCode;
 
 
-public class OrderScreen implements Screen{
+public class OrderScreen implements Screen {
     private Cart cart =  new Cart();
 
     @Override
@@ -15,15 +19,12 @@ public class OrderScreen implements Screen{
 
         while (running) {
 
-            System.out.println("1) Add Taco");
-            System.out.println("2) Add Burrito");
-            System.out.println("3) Add Drink");
-            System.out.println("4) Add Chips & Salsa");
-            System.out.println("5) Add-Ons");
-            System.out.println("6) Checkout");
-            System.out.println("0) Cancel Order");
-            System.out.print("Enter a Value: ");
-
+            AnsiCode.printBanner();
+            AnsiCode.printOrderMenu();
+            AnsiCode.printSelection();
+//
+//            System.out.print("Enter Selection ");
+//
             int choice = Main.scanner.nextInt();
 
             switch (choice) {

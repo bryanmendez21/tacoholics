@@ -1,10 +1,14 @@
-package com.pluralsight.ui;
+package com.pluralsight.ui.screens;
 
 import com.pluralsight.Main;
 import com.pluralsight.model.*;
+import com.pluralsight.ui.Screen;
+import com.pluralsight.util.AnsiCode;
+
+import static com.pluralsight.util.AnsiCode.*;
 
 
-public class Checkout implements Screen{
+public class Checkout implements Screen {
     private Cart cart;
 
     public Checkout(Cart cart) {
@@ -18,9 +22,15 @@ public class Checkout implements Screen{
         while (running) {
             System.out.println("CHECK OUT");
 
+            AnsiCode.printBanner();
+
+            // Taco
             for (Taco taco : cart.getTacos()) {
-                taco.description();
-                System.out.println("Price: " + taco.getPrice());
+                String label = taco instanceof ThreeTacoPlate ? "3 Taco Plate" : "Single Taco";
+                System.out.printf(CYAN + "║" + RESET + WHITE +
+                                " 🌮 %-20s %-6d $%-9.2f ║%n",
+                         label, taco.getQuantity(), taco.getPrice());
+                System.out.printf(GRAY + "║- %-46s ║%n", taco.description());
             }
             for (Drink drink : cart.getDrinks()) {
                 drink.description();

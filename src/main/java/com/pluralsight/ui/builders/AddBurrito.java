@@ -1,4 +1,4 @@
-package com.pluralsight.ui;
+package com.pluralsight.ui.builders;
 
 import com.pluralsight.Main;
 import com.pluralsight.model.Burrito;
@@ -6,13 +6,8 @@ import com.pluralsight.model.Ingredients;
 
 import java.util.List;
 
-public class AddBurrito implements Screen{
+public class AddBurrito {
     Ingredients custom = new Ingredients();
-
-    @Override
-    public void display() {
-        buildBurrito();
-    }
 
     public Burrito buildBurrito(){
 

@@ -1,10 +1,11 @@
-package com.pluralsight.ui;
+package com.pluralsight.ui.screens;
 
 import com.pluralsight.Main;
 import com.pluralsight.model.Cart;
+import com.pluralsight.ui.Screen;
 
 
-public class AddOns implements Screen{
+public class AddOns implements Screen {
     private Cart cart;
 
     public AddOns(Cart cart) {

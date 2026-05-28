@@ -23,6 +23,7 @@ public abstract class Taco implements MenuItem{
     public abstract double getPrice();
 
     @Override
-    public abstract void description();
+    public abstract String description();
 
+    public abstract int getQuantity();
 }

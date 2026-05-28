@@ -1,10 +1,11 @@
-package com.pluralsight.ui;
+package com.pluralsight.ui.screens;
 
 import com.pluralsight.Main;
 import com.pluralsight.model.Cart;
+import com.pluralsight.ui.Screen;
 import com.pluralsight.util.ReceiptWriter;
 
-public class Payment implements Screen{
+public class Payment implements Screen {
     private Cart cart;
 
     public Payment(Cart cart) {

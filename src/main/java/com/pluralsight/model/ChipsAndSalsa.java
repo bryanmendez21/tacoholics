@@ -22,7 +22,7 @@ public class ChipsAndSalsa implements MenuItem{
     }
 
     @Override
-    public void description() {
-        System.out.printf("===== Chips & Salsa Details =====%nPrice: %.2f%nFlavor: %s%n========================%n",getPrice(),flavor);
+    public String description() {
+        return String.format("Price: %.2f | Flavor: %s",getPrice(),flavor);
     }
 }

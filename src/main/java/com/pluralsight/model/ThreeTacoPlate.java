@@ -27,7 +27,12 @@ public class ThreeTacoPlate extends Taco {
     }
 
     @Override
-    public void description() {
-        System.out.printf("===== 3 Taco Plate =====%nMeat: %s%nExtra Meat: %b%nCheese: %s%nExtra Cheese: %b%nToppings: %s%n========================%n", meat, extraMeat, cheese, extraCheese, topping);
+    public String description() {
+        return String.format("Meat: %s|Cheese: %s|Toppings: %s", meat, cheese, topping);
+    }
+
+    @Override
+    public int getQuantity(){
+        return 3;
     }
 }
