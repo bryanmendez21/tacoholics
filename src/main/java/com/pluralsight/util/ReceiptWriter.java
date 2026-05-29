@@ -14,28 +14,57 @@ public class ReceiptWriter {
 
         try {
             PrintWriter writer = new PrintWriter(fileName);
-            writer.println("Tacoholic's Receipt");
+            // Header
+            writer.println("============================================");
+            writer.println("              TACOHOLIC'S                  ");
+            writer.println("============================================");
+            writer.println("  Date: " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("MMMM dd, yyyy  h:mm a")));
+            writer.println("--------------------------------------------");
 
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy  h:mm a");
-            writer.println(LocalDateTime.now().format(formatter));
+            // Tacos
+            if (!cart.getTacos().isEmpty()) {
+                writer.println("  TACOS");
+                for (Taco taco : cart.getTacos()) {
+                    writer.printf("  %-35s $%3.2f%n", taco.description(), taco.getPrice());
+                }
+                writer.println();
+            }
 
-            for(Taco taco : cart.getTacos()){
-                writer.println("Taco Description: " + taco.description());
-                writer.println("Taco Price: " + taco.getPrice());
+            // Drinks
+            if (!cart.getDrinks().isEmpty()) {
+                writer.println("  DRINKS");
+                for (Drink drink : cart.getDrinks()) {
+                    writer.printf("  %-35s $%3.2f%n", drink.description(), drink.getPrice());
+                }
+                writer.println();
             }
-            for (Drink drink : cart.getDrinks()){
-                writer.println("Drink Description: " + drink.description());
-                writer.println("Drink Price: " + drink.getPrice());
+
+
+            // Burritos
+            if (!cart.getBurrito().isEmpty()) {
+                writer.println("  BURRITOS");
+                for (Burrito burrito : cart.getBurrito()) {
+                    writer.printf("  %-35s $%3.2f%n", burrito.description(), burrito.getPrice());
+                }
+                writer.println();
             }
-            for (Burrito burrito : cart.getBurrito()){
-                writer.println("Burrito Description: " + burrito.description());
-                writer.println("Burrito Price: " + burrito.getPrice());
+
+            // Chips & Salsa
+            if (!cart.getChipSalsa().isEmpty()) {
+                writer.println("  CHIPS & SALSA");
+                for (ChipsAndSalsa chipSalsa : cart.getChipSalsa()) {
+                    writer.printf("  %-35s $%3.2f%n", chipSalsa.description(), chipSalsa.getPrice());
+                }
+                writer.println();
             }
-            for (ChipsAndSalsa chipSalsa : cart.getChipSalsa()){
-                writer.println("Chips & Salsa Description: " + chipSalsa.description());
-                writer.println("Chips & Salsa Price: " + chipSalsa.getPrice());
-            }
-            writer.printf("Total: $%.2f%n",  cart.getTotal());
+
+            // Footer
+            writer.println("--------------------------------------------");
+            writer.printf("  %-28s $%6.2f%n", "TOTAL:", cart.getTotal());
+            writer.println("============================================");
+            writer.println("       Thank you for visiting Tacoholic's!  ");
+            writer.println("============================================");
+
 
             writer.close();
 
