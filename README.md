@@ -44,16 +44,20 @@ At Tacoholics, every order is personal. Customers build their tacos exactly how 
 tacoholics/
 ├── com.pluralsight/
 │   ├── ui/
-│   │   ├── AddBurrito.java
-│   │   ├── AddChipsAndSalsa.java
-│   │   ├── AddDrink.java
-│   │   ├── AddOns.java
-│   │   ├── AddTaco.java
-│   │   ├── Checkout.java
-│   │   ├── HomeScreen.java
-│   │   ├── OrderScreen.java
-│   │   ├── Payment.java
-│   │   └── Screen.java
+│   │   ├── builders/
+│   │   │   ├── AddBurrito.java
+│   │   │   ├── AddChipsAndSalsa.java
+│   │   │   ├── AddDrink.java
+│   │   │   └── AddTaco.java
+│   │   │ 
+│   │   └── screens/
+│   │       ├── AddOns.java
+│   │       ├── Checkout.java
+│   │       ├── HomeScreen.java
+│   │       ├── OrderScreen.java
+│   │       ├── Payment.java
+│   │       └── Screen.java
+│   │ 
 │   ├── models/
 │   │   ├── Taco.java
 │   │   ├── Burrito.java
