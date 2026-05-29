@@ -8,10 +8,17 @@ import java.time.format.DateTimeFormatter;
 
 public class ReceiptWriter {
     public static void Write(Cart cart){
+
+
         String fileName = "src/main/resources/receipts" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss" )) + ".txt";
 
         try {
             PrintWriter writer = new PrintWriter(fileName);
+            writer.println("Tacoholic's Receipt");
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy  h:mm a");
+            writer.println(LocalDateTime.now().format(formatter));
+
             for(Taco taco : cart.getTacos()){
                 writer.println("Taco Description: " + taco.description());
                 writer.println("Taco Price: " + taco.getPrice());

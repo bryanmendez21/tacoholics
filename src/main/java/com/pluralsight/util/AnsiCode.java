@@ -53,13 +53,15 @@ public class AnsiCode {
 
         System.out.printf(CYAN + BOLD + "║ " + SILVER + "[" + YELLOW + "1" + SILVER + "] "  + WHITE + "%-47s" + CYAN + "║%n" + RESET, " Add Taco");
 
-        System.out.printf(CYAN + BOLD + "║ " + SILVER + "[" + YELLOW + "2" + SILVER + "] " + WHITE + "%-47s" + CYAN + "║%n" + RESET, " Add Burrito");
+        System.out.printf(CYAN + BOLD + "║ " + SILVER + "[" + YELLOW + "2" + SILVER + "] "  + WHITE + "%-47s" + CYAN + "║%n" + RESET, " Add Signature Taco");
 
-        System.out.printf(CYAN + BOLD + "║ " + SILVER + "[" + YELLOW + "3" + SILVER + "] " + WHITE + "%-47s" + CYAN + "║%n" + RESET, " Add Drink");
+        System.out.printf(CYAN + BOLD + "║ " + SILVER + "[" + YELLOW + "3" + SILVER + "] " + WHITE + "%-47s" + CYAN + "║%n" + RESET, " Add Burrito");
 
-        System.out.printf(CYAN + BOLD + "║ " + SILVER + "[" + YELLOW + "4" + SILVER + "] " + WHITE + "%-47s" + CYAN + "║%n" + RESET, " Add Chips & Salsa");
+        System.out.printf(CYAN + BOLD + "║ " + SILVER + "[" + YELLOW + "4" + SILVER + "] " + WHITE + "%-47s" + CYAN + "║%n" + RESET, " Add Drink");
 
-        System.out.printf(CYAN + BOLD + "║ " + SILVER + "[" + YELLOW + "5" + SILVER + "] " + WHITE + "%-47s" + CYAN + "║%n" + RESET, " Add-Ons");
+        System.out.printf(CYAN + BOLD + "║ " + SILVER + "[" + YELLOW + "5" + SILVER + "] " + WHITE + "%-47s" + CYAN + "║%n" + RESET, " Add Chips & Salsa");
+
+        System.out.printf(CYAN + BOLD + "║ " + SILVER + "[" + YELLOW + "6" + SILVER + "] " + WHITE + "%-47s" + CYAN + "║%n" + RESET, " Add-Ons");
 
         printMiddle();
 
@@ -67,7 +69,7 @@ public class AnsiCode {
 
         System.out.println(CYAN + BOLD + "║" + GRAY + BOLD + "  ──────────────────────────────────────            " + CYAN + BOLD + "║"+ RESET);
 
-        System.out.printf(CYAN + BOLD + "║ " + SILVER + "[" + GREEN + "6" + SILVER + "] " + WHITE + "%-47s" + CYAN + "║%n" + RESET, " Checkout");
+        System.out.printf(CYAN + BOLD + "║ " + SILVER + "[" + GREEN + "7" + SILVER + "] " + WHITE + "%-47s" + CYAN + "║%n" + RESET, " Checkout");
 
         System.out.printf(CYAN + BOLD + "║ " + SILVER + "[" + RED + "0" + SILVER + "] " + WHITE + "%-47s" + CYAN + "║%n" + RESET, " Cancel Order");
 

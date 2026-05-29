@@ -29,11 +29,12 @@ public class OrderScreen implements Screen {
 
             switch (choice) {
                 case 1 -> cart.addTaco(new AddTaco().buildTaco());
-                case 2 -> cart.addBurrito(new AddBurrito().buildBurrito());
-                case 3 -> cart.addDrink(new AddDrink().buildDrink());
-                case 4 -> cart.addChipSalsa(new AddChipsAndSalsa().buildChipAndSalsa());
-                case 5 -> new AddOns(cart).display();
-                case 6 -> {
+                case 2 -> AnsiCode.printInvalid();
+                case 3 -> cart.addBurrito(new AddBurrito().buildBurrito());
+                case 4 -> cart.addDrink(new AddDrink().buildDrink());
+                case 5 -> cart.addChipSalsa(new AddChipsAndSalsa().buildChipAndSalsa());
+                case 6 -> new AddOns(cart).display();
+                case 7 -> {
                     boolean paid = new Checkout(cart).display();
                     if(paid || cart.isEmpty()) running = false;
                 }
